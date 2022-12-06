@@ -12,6 +12,8 @@ app.use(
     fileUpload()
 );
 
+mongoose.set('strictQuery', true)
+
 mongoose.connect("mongodb://localhost:27017/dlsuBTPdb", {
     useNewUrlParser: true
 })
