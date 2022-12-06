@@ -14,6 +14,7 @@ Instructions to setup:
         - connect-mongodb-session
         - path
         - fs
+        - bcrypt
         
 Instructions to run locally:
 - open the root directory (folder) in the command prompt
