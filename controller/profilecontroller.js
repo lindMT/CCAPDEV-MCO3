@@ -2,6 +2,7 @@ const { redirect } = require('statuses');
 const User = require('../model/usersSchema.js');
 const Post = require('../model/postSchema.js');
 const path = require('path');
+const bcrypt = require("bcrypt");
 
 const profilecontroller = {
     getProfile: function(req, res) {
@@ -75,6 +76,7 @@ const profilecontroller = {
                 });
             }
             else {
+                var hashedpw = bcrypt.hashSync(pw1, 10);
                 if (!req.files){
                     User.updateOne({ userName: {$eq: req.session.userName} }, 
                         { 
@@ -83,7 +85,7 @@ const profilecontroller = {
                             userName: username,
                             bio: bio,
                             email: email,
-                            password: pw1
+                            password: hashedpw
                         }
                         , null, function (err, docs) {
                         if (err){
@@ -121,7 +123,7 @@ const profilecontroller = {
                             userName: username,
                             bio: bio,
                             email: email,
-                            password: pw1
+                            password: hashedpw
                         }
                         , null, function (err, docs) {
                         if (err){

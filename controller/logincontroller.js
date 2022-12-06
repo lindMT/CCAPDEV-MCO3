@@ -1,4 +1,5 @@
 const User = require('../model/usersSchema.js');
+const bcrypt = require("bcrypt");
 
 const logincontroller = {
     // for redirecting login and signup
@@ -10,23 +11,29 @@ const logincontroller = {
 
     // for redirecting to home page
     checkLogin: function(req, res) {
-        User.findOne({email: req.body.email, password: req.body.password }, function (err, docs) {
+        User.findOne({ email: req.body.email }, function (err, docs) {
             if (err){
                 console.log(err)
             }
             // if docs has no result = wrong login
             else if (docs == null){ 
                 res.render('login', {loginPrompt: "Wrong email/password"})
-                console.log("No Result");
+                console.log("No email found");
             } 
             else{
-                console.log("Logged in successfully.");
-                req.session.isAuth = true;
-                req.session.userName = docs.userName;
-                req.session.id = docs.id;
-                req.session.dp = docs.profileImg;
-                res.redirect('/home');
-                console.log(req.session.userName);
+                // use compareSync to compare plaintext to hashed text
+                if(bcrypt.compareSync( req.body.password, docs.password)){
+                    console.log("Logged in successfully.");
+                    req.session.isAuth = true;
+                    req.session.userName = docs.userName;
+                    req.session.id = docs.id;
+                    req.session.dp = docs.profileImg;
+                    res.redirect('/home');
+                    console.log(req.session.userName);
+                } else{ 
+                    res.render('login', {loginPrompt: "Wrong email/password"})
+                    console.log("Wrong password");
+                } 
             }
         });
     },
@@ -50,13 +57,16 @@ const logincontroller = {
             res.render('signup', {registerPrompt: "Please match the passwords"});
         }
         else {
+            var plainpassword = pw1;
+            var hashedpw = bcrypt.hashSync(plainpassword, 10);
+
             const user = new User({
                 firstName: fname,
                 lastName: lname,
                 idNum: idNum,
                 userName:username,
                 email: email,
-                password: pw1
+                password: hashedpw
             });
             user.save(function(err) {
                 if (err){
