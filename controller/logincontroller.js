@@ -13,7 +13,7 @@ const logincontroller = {
     checkLogin: function(req, res) {
         User.findOne({ email: req.body.email }, function (err, docs) {
             if (err){
-                console.log(err)
+                res.send(err);
             }
             // if docs has no result = wrong login
             else if (docs == null){ 
@@ -70,7 +70,7 @@ const logincontroller = {
             });
             user.save(function(err) {
                 if (err){
-                    console.log(err);
+                    res.send(err);;
                 } else{
                     res.render('login', {loginPrompt: "You have registered successfully!"});
                 }
