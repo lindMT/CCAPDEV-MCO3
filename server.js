@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
@@ -5,7 +6,7 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const mongoDBSession = require('connect-mongodb-session')(session);
 // npm init -y
-// npm install ejs express express-session body-parser mongoose  connect-mongodb-session path fs bcrypt
+// npm install ejs express express-session body-parser mongoose  connect-mongodb-session path fs bcrypt dotenv
 
 const fileUpload = require('express-fileupload');
 app.use(
