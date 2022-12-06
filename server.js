@@ -14,15 +14,10 @@ app.use(
 
 mongoose.set('strictQuery', true);
 
-mongoose.connect("mongodb://127.0.0.1:27017/dlsuBTPdb", {
-    useNewUrlParser: true
-})
-.then((res) => {
-    console.log("MongoDB connected");
-});
+mongoose.connect("mongodb+srv://dlsuBTPadmin:dlsuBTPadmin@dlsubtpdb.k3yt7wb.mongodb.net/dlsuBTPdb")
 
 const store = new mongoDBSession({
-    uri: "mongodb://127.0.0.1:27017/dlsuBTPdb",
+    uri: "mongodb+srv://dlsuBTPadmin:dlsuBTPadmin@dlsubtpdb.k3yt7wb.mongodb.net/dlsuBTPdb",
     collection: "mySessions"
 })
 
@@ -47,6 +42,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const route = require("./routes/route.js")
 app.use('/', route);
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log("Server started on port 3000");
 });
