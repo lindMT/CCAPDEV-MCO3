@@ -5,20 +5,23 @@ const app = express();
 const mongoose = require("mongoose");
 const session = require('express-session');
 const mongoDBSession = require('connect-mongodb-session')(session);
+const fileUpload = require('express-fileupload');
 // npm init -y
 // npm install ejs express express-session body-parser mongoose  connect-mongodb-session path fs bcrypt dotenv
 
-const fileUpload = require('express-fileupload');
+const atlas = "mongodb+srv://dlsuBTPadmin:" + process.env.ATLAS_PASSWORD + "@dlsubtpdb.k3yt7wb.mongodb.net/dlsuBTPdb";
+
+
 app.use(
     fileUpload()
 );
 
 mongoose.set('strictQuery', true);
 
-mongoose.connect("mongodb+srv://dlsuBTPadmin:dlsuBTPadmin@dlsubtpdb.k3yt7wb.mongodb.net/dlsuBTPdb")
-
+mongoose.connect()
+mongoose.connect(atlas);
 const store = new mongoDBSession({
-    uri: "mongodb+srv://dlsuBTPadmin:dlsuBTPadmin@dlsubtpdb.k3yt7wb.mongodb.net/dlsuBTPdb",
+    uri: atlas,
     collection: "mySessions"
 })
 
