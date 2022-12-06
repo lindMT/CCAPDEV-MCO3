@@ -10,12 +10,12 @@ const postcontroller = {
 
         Post.findOne({_id: postID}, function(err, postImgDocs) {
             if (err){
-                res.send(err);;
+                res.send(err);
             } else{
                 const imgRemove = path.resolve(__dirname + '/..' + "/public/"+ postImgDocs.postImg)
                 fs.unlink(imgRemove, (err)=>{
                     if (err){
-                        res.send(err);;
+                        res.send(err);
                     } else{
                         console.log("Deleted post image successfully.");
                     }
@@ -25,7 +25,7 @@ const postcontroller = {
 
         Post.findOneAndDelete({_id: postID}, function(err, docs) {
             if (err){
-                res.send(err);;
+                res.send(err);
             } else{
                 console.log("Deleted post from database successfully.");
                 res.redirect('/home');

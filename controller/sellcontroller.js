@@ -27,7 +27,7 @@ const sellcontroller = {
             
             postImg.mv(path.resolve('public/images/postimages',userName+"_"+r+"."+extension),function(err) {
                 if(err){
-                    res.send(err);;
+                    res.send(err);
                 }else{
                     console.log("Successful post image upload!");
                 }
@@ -52,7 +52,7 @@ const sellcontroller = {
                     });
                     post.save(function(err) {
                         if (err){
-                            res.send(err);;
+                            res.send(err);
                         } else{
                             res.redirect("/profile/" + req.session.userName);
                         }

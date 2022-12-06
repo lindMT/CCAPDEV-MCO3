@@ -90,7 +90,7 @@ const profilecontroller = {
             
                 profileImg.mv(path.resolve('public/images/dp',userName+"_dp."+extension),function(err) {
                     if(err){
-                        res.send(err);;
+                        res.send(err);
                     }else{
                         console.log("Successful profile image upload!");
                     }

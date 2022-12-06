@@ -42,7 +42,7 @@ const homecontroller = {
             // sorts by descending order (-1) of post likes
             Post.find({}, null, {sort: { likes: -1}}, function (err, docs){
                 if (err){
-                    res.send(err);;
+                    res.send(err);
                 } else{
                     res.render('searchlanding', {posts: docs , searchCategory: "POPULAR ITEMS"});
                 }
@@ -61,7 +61,7 @@ const homecontroller = {
             // checks for posts that contain searchQuery
             Post.find({itemName : {$regex : new RegExp(searchQuery, 'i')}}, function (err, docs){
                 if (err){
-                    res.send(err);;
+                    res.send(err);
                 } else{
                     res.render('searchlanding', {posts: docs , searchCategory: "search results for: "+ searchQuery});
                 }

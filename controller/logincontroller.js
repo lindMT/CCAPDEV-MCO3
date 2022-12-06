@@ -70,7 +70,7 @@ const logincontroller = {
             });
             user.save(function(err) {
                 if (err){
-                    res.send(err);;
+                    res.send(err);
                 } else{
                     res.render('login', {loginPrompt: "You have registered successfully!"});
                 }
