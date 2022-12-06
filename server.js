@@ -18,6 +18,7 @@ app.use(
 mongoose.set('strictQuery', true);
 
 mongoose.connect(atlas);
+
 const store = new mongoDBSession({
     uri: atlas,
     collection: "mySessions"
