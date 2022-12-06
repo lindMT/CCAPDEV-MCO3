@@ -40,18 +40,10 @@
                     <span class="inputdetails"> Email </span>
                     <input name="email" type="text" value="<%= user.email%>">
                 </div>
-                <div class="inputbox">
-                    <span class="inputdetails"> Password </span>
-                    <input name="pw1" type="password" value="<%= user.password%>">
-                </div>
-                <div class="inputbox">
-                    <span class="inputdetails"> Confirm Password </span>
-                    <input name="pw2" type="password" value="<%= user.password%>">
-                </div>
-                <%=profileEditPrompt%>
                 <div class="savebutton">
                     <input type="submit" value="Save">
                 </div>
+                or <a href="/resetpassword">reset password</a>
             </div>
         </form>
     </div>

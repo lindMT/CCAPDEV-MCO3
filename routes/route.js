@@ -27,6 +27,8 @@ app.post("/textsearchlanding", homecontroller.getTextSearchResults);
 app.get("/profile/:clickedUserName", profilecontroller.getProfile);
 app.get("/profileedit", profilecontroller.getProfileEdit);
 app.post("/saveprofileedit", profilecontroller.saveProfileEdit);
+app.get("/resetpassword", profilecontroller.resetpassword);
+app.post("/saveresetpassword", profilecontroller.saveresetpassword);
 
 //Selling
 app.get("/sell", sellcontroller.getSell);
