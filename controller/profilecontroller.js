@@ -10,12 +10,12 @@ const profilecontroller = {
         if(req.session.isAuth) {
             User.findOne({ userName: req.params.clickedUserName }, function (err, userdocs) {
                 if (err){
-                    res.send(err);
+                    console.log(err);
                 }
                 else{
                     Post.find({ postedBy: req.params.clickedUserName }, function (err, postdocs) {
                         if (err){
-                            res.send(err);
+                            console.log(err);
                         }
                         else{
                             console.log("Profile selected.")
@@ -36,7 +36,7 @@ const profilecontroller = {
         if(req.session.isAuth) {
             User.findOne({ userName: req.session.userName }, function (err, docs) {
                 if (err){
-                    res.send(err);
+                    console.log(err);
                 }
                 else{
                     console.log("Profile edit selected.")
@@ -72,7 +72,7 @@ const profilecontroller = {
                     }
                     , null, function (err, docs) {
                     if (err){
-                        res.send(err);
+                        console.log(err);
                     }
                     else{
                         req.session.userName = username;
@@ -90,7 +90,7 @@ const profilecontroller = {
             
                 profileImg.mv(path.resolve('public/images/dp',userName+"_dp."+extension),function(err) {
                     if(err){
-                        res.send(err);
+                        console.log(err);
                     }else{
                         console.log("Successful profile image upload!");
                     }
@@ -109,7 +109,7 @@ const profilecontroller = {
                     }
                     , null, function (err, docs) {
                     if (err){
-                        res.send(err);
+                        console.log(err);
                     }
                     else{
                         req.session.dp = imgPath;
@@ -151,7 +151,7 @@ const profilecontroller = {
                     }
                     , null, function (err, docs) {
                     if (err){
-                        res.send(err);
+                        console.log(err);
                     }
                     else{
                         res.render('resetpassword', {resetPrompt: "Password changed successfully."});

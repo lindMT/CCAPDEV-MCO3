@@ -27,7 +27,7 @@ const sellcontroller = {
             
             postImg.mv(path.resolve('public/images/postimages',userName+"_"+r+"."+extension),function(err) {
                 if(err){
-                    res.send(err);
+                    console.log(err);
                 }else{
                     console.log("Successful post image upload!");
                 }
@@ -35,7 +35,7 @@ const sellcontroller = {
 
             User.findOne({ userName: req.session.userName }, function (err, docs) {
                 if (err){
-                    res.send(err);
+                    console.log(err);
                 }
                 else {// no result = some error 
                     const imgPath = '/images/postimages/'+userName+"_"+r+"."+extension;
@@ -52,7 +52,7 @@ const sellcontroller = {
                     });
                     post.save(function(err) {
                         if (err){
-                            res.send(err);
+                            console.log(err);
                         } else{
                             res.redirect("/profile/" + req.session.userName);
                         }
