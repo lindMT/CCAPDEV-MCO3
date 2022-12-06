@@ -16,7 +16,7 @@ const logincontroller = {
             }
             // if docs has no result = wrong login
             else if (docs == null){ 
-                res.render('login', {loginPrompt: "Wrong username/password"})
+                res.render('login', {loginPrompt: "Wrong email/password"})
                 console.log("No Result");
             } 
             else{
