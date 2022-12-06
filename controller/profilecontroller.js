@@ -112,6 +112,21 @@ const profilecontroller = {
                         console.log(err);
                     }
                     else{
+
+                        Post.updateMany({ posterImg: {$eq: req.session.dp}}, 
+                            {
+                                posterImg: imgPath
+                            }
+                            , function (err2, postdocs) {
+                            if (err2){
+                                console.log(err2)
+                            }
+                            else{
+
+                            }
+                        });
+
+
                         req.session.dp = imgPath;
                         req.session.userName = username;
                         res.redirect("/profile/" + username);
