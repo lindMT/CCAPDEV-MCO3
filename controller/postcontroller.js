@@ -7,22 +7,7 @@ const postcontroller = {
 
     deletePost: function (req, res){
         const postID = req.params.postID;
-
-        Post.findOne({_id: postID}, function(err, postImgDocs) {
-            if (err){
-                console.log(err);
-            } else{
-                const imgRemove = path.resolve(__dirname + '/..' + "/public/"+ postImgDocs.postImg)
-                fs.unlink(imgRemove, (err)=>{
-                    if (err){
-                        console.log(err);
-                    } else{
-                        console.log("Deleted post image successfully.");
-                    }
-                })
-            }
-        });
-
+        
         Post.findOneAndDelete({_id: postID}, function(err, docs) {
             if (err){
                 console.log(err);
