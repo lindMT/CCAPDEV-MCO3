@@ -12,7 +12,6 @@ app.use(
     fileUpload()
 );
 
-mongoose.set('strictQuery', true)
 
 mongoose.connect("mongodb://localhost:27017/dlsuBTPdb", {
     useNewUrlParser: true
@@ -22,7 +21,7 @@ mongoose.connect("mongodb://localhost:27017/dlsuBTPdb", {
 });
 
 const store = new mongoDBSession({
-    uri: "mongodb://localhost:27017/dlsuBTPdb",
+    uri: "mongodb://127.0.0.1:27017/dlsuBTPdb",
     collection: "mySessions"
 })
 
