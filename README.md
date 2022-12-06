@@ -3,7 +3,7 @@ Instructions to setup:
 - open the root directory (folder) in the command prompt
 - type the following and hit enter:
   - npm init -y
-  - npm install node ejs express express-session body-parser mongoose  connect-mongodb-session path fs
+  - npm install node ejs express express-session body-parser mongoose  connect-mongodb-session path fs bcrypt dotenv
     - this line installs the following npm packages 
         - node
         - ejs 
@@ -15,6 +15,7 @@ Instructions to setup:
         - path
         - fs
         - bcrypt
+        - dotenv
         
 Instructions to run locally:
 - open the root directory (folder) in the command prompt
