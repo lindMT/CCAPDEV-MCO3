@@ -14,7 +14,7 @@ app.use(
 
 mongoose.set('strictQuery', true);
 
-mongoose.connect("mongodb://localhost:27017/dlsuBTPdb", {
+mongoose.connect("mongodb://127.0.0.1:27017/dlsuBTPdb", {
     useNewUrlParser: true
 })
 .then((res) => {
