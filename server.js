@@ -11,7 +11,6 @@ const fileUpload = require('express-fileupload');
 
 const atlas = "mongodb+srv://dlsuBTPadmin:" + process.env.ATLAS_PASSWORD + "@dlsubtpdb.k3yt7wb.mongodb.net/dlsuBTPdb";
 
-
 app.use(
     fileUpload()
 );
