@@ -59,7 +59,7 @@ const homecontroller = {
             const searchQuery = req.body.searchquery;
             
             // checks for posts that contain searchQuery
-            Post.find({itemName : {$regex : new RegExp(searchQuery, 'i')}}, function (err, docs){
+            Post.find({$or:[{itemName: {$regex : new RegExp(searchQuery, 'i')}}, {postDetails: {$regex : new RegExp(searchQuery, 'i')}}]}, function (err, docs){
                 if (err){
                     console.log(err);
                 } else{
