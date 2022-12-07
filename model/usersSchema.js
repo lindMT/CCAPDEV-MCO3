@@ -43,9 +43,6 @@ const usersSchema = new Schema( {
     },
 
     profileImg: {
-        // TODO:
-        // might have to change this if ever? 
-        // maybe into a blob, or modify controller to use file paths
         type: String, 
         default: "/images/dp/dp_default.png"
     }

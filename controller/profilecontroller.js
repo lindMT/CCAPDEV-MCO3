@@ -75,6 +75,46 @@ const profilecontroller = {
                         console.log(err);
                     }
                     else{
+                        
+                        // update username in posts by user
+                        Post.updateMany({postedBy:{$eq: req.session.userName}}, 
+                            {
+                                postedBy: req.session.userName 
+                            }
+                            , function (err2, docs2) {
+                            if (err2){
+                                console.log(err2)
+                            }
+                            else{
+                                console.log("Updated post usernames successfully.");
+                            }
+                        });
+
+                        // update username in likers from posts
+                        Post.updateMany({}, 
+                            {   $pull: 
+                                {
+                                    likers: {
+                                        likerUserName: req.session.userName
+                                    }
+                                },
+                                $push: 
+                                {
+                                    likers: {
+                                        likerUserName: req.session.username
+                                    }
+                                }
+                            }
+                            , null, function (err, docs) {
+                            if (err){
+                                console.log(err);
+                            }
+                            else{
+                                console.log("Updated likers successfully.");
+                                res.redirect('/home'); 
+                            }
+                        });
+
                         req.session.userName = username;
                         res.redirect("/profile/" + username);
                     }
@@ -113,20 +153,46 @@ const profilecontroller = {
                     }
                     else{
 
+                        // update username and dp in posts by user
                         Post.updateMany({ posterImg: {$eq: req.session.dp}}, 
                             {
-                                posterImg: imgPath
+                                posterImg: imgPath,
+                                postedBy: req.session.userName
                             }
-                            , function (err2, postdocs) {
+                            , function (err2, docs2) {
                             if (err2){
                                 console.log(err2)
                             }
                             else{
-
+                                console.log("Updated post usernames and dp");
                             }
                         });
 
-
+                        // update username in likers from posts
+                        Post.updateMany({}, 
+                            {   $pull: 
+                                {
+                                    likers: {
+                                        likerUserName: req.session.userName
+                                    }
+                                },
+                                $push: 
+                                {
+                                    likers: {
+                                        likerUserName: req.session.username
+                                    }
+                                }
+                            }
+                            , null, function (err, docs) {
+                            if (err){
+                                console.log(err);
+                            }
+                            else{
+                                console.log("Updated likers successfully.");
+                                res.redirect('/home'); 
+                            }
+                        });
+                        
                         req.session.dp = imgPath;
                         req.session.userName = username;
                         res.redirect("/profile/" + username);
