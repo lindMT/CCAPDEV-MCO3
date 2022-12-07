@@ -1,0 +1,48 @@
+<%- include("partials/header") -%>
+<br>
+<div class="profile-edit-container">
+        <div class="register-title">  
+            Edit Profile<hr>
+        </div>
+
+        <form action="/saveprofileedit" method="POST" enctype="multipart/form-data">
+            <div class="userdetails">
+                
+                <div class="inputbox">
+                    <center><img src="<%= session.dp %>" class="greenborder" id="preview" height="150px" width="150px"><br> </center><br>
+                            <span class="inputdetails"> Change Profile Picture </span><br>
+                    <input 
+                        type="file" 
+                        id="myFile" 
+                        name="profileImg" 
+                        enctype="multipart/form-data"
+                        onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])"
+                        accept=".jpg, .jpeg, .png, .jfif"
+                    >
+                </div>
+
+                <div class="inputbox">
+                    <span class="inputdetails"> First Name </span>
+                    <input name="fname" type="text" value="<%= user.firstName%>">
+                </div>
+                <div class="inputbox">
+                    <span class="inputdetails"> Last Name </span>
+                    <input name="lname" type="text" value="<%= user.lastName%>">
+                </div>
+                <div class="inputbox">
+                    <span class="inputdetails"> Bio </span>
+                    <input name="bio" type="text" value="<%= user.bio%>">
+                </div>
+                <div class="inputbox">
+                    <span class="inputdetails"> Email </span>
+                    <input name="email" type="text" value="<%= user.email%>">
+                </div>
+                <div class="savebutton">
+                    <input type="submit" value="Save Profile Changes">
+                </div>
+                or <a href="/resetpassword">Reset Password</a>
+            </div>
+        </form>
+
+    </div>
+<%- include("partials/footer") -%>
