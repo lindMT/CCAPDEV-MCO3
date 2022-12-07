@@ -66,7 +66,6 @@ const profilecontroller = {
                     { 
                         firstName: fname,
                         lastName: lname,
-                        userName: username,
                         bio: bio,
                         email: email
                     }
@@ -75,81 +74,6 @@ const profilecontroller = {
                         console.log(err);
                     }
                     else{
-                        
-                        // update username in posts by user
-                        Post.updateMany({postedBy:{$eq: req.session.userName}}, 
-                            {
-                                postedBy: req.body.username
-                            }
-                            , function (err2, docs2) {
-                            if (err2){
-                                console.log(err2)
-                            }
-                            else{
-                                console.log("Updated post usernames successfully.");
-                            }
-                        });
-
-                        // remove old username from old posts
-                        Post.updateMany({}, 
-                            {   $pull: 
-                                {
-                                    likers: {
-                                        likerUserName: req.session.userName
-                                    }
-                                }
-                            }
-                            , null, function (err, docs) {
-                            if (err){
-                                console.log(err);
-                            }
-                            else{
-                                console.log("Updated likers successfully.");
-                                res.redirect('/home'); 
-                            }
-                        });
-                        // add new username from old posts
-                        Post.updateMany({}, 
-                            {   
-                                $push: 
-                                {
-                                    likers: {
-                                        likerUserName: req.body.username
-                                    }
-                                }
-                            }
-                            , null, function (err, docs) {
-                            if (err){
-                                console.log(err);
-                            }
-                            else{
-                                console.log("Updated likers successfully.");
-                                res.redirect('/home'); 
-                            }
-                        });
-
-                        // update username in comments from posts
-                        Post.updateMany(
-                            {
-                                comments: {$elemMatch: { commentedBy: req.session.userName }}
-                            }, 
-
-                            {   $set: 
-                                {
-                                    commentedBy: req.body.username
-                                }
-                            }
-                            , null, function (err, docs) {
-                            if (err){
-                                console.log(err);
-                            }
-                            else{
-                                console.log("Updated likers successfully.");
-                                res.redirect('/home'); 
-                            }
-                        });
-
-                        req.session.userName = username;
                         res.redirect("/profile/" + username);
                     }
                 });
@@ -177,7 +101,6 @@ const profilecontroller = {
                         profileImg: imgPath,
                         firstName: fname,
                         lastName: lname,
-                        userName: username,
                         bio: bio,
                         email: email
                     }
@@ -186,83 +109,7 @@ const profilecontroller = {
                         console.log(err);
                     }
                     else{
-
-                        // update username and dp in posts by user
-                        Post.updateMany({ posterImg: {$eq: req.session.dp}}, 
-                            {
-                                posterImg: imgPath,
-                                postedBy: req.body.username
-                            }
-                            , function (err2, docs2) {
-                            if (err2){
-                                console.log(err2)
-                            }
-                            else{
-                                console.log("Updated post usernames and dp");
-                            }
-                        });
-
-                       // remove old username from old posts
-                       Post.updateMany({}, 
-                        {   $pull: 
-                            {
-                                likers: {
-                                    likerUserName: req.session.userName
-                                }
-                            }
-                        }
-                        , null, function (err, docs) {
-                        if (err){
-                            console.log(err);
-                        }
-                        else{
-                            console.log("Updated likers successfully.");
-                            res.redirect('/home'); 
-                        }
-                    });
-                    // add new username from old posts
-                    Post.updateMany({}, 
-                        {   
-                            $push: 
-                            {
-                                likers: {
-                                    likerUserName: req.body.username
-                                }
-                            }
-                        }
-                        , null, function (err, docs) {
-                        if (err){
-                            console.log(err);
-                        }
-                        else{
-                            console.log("Updated likers successfully.");
-                            res.redirect('/home'); 
-                        }
-                    });
-
-                    // update username in comments from posts
-                    Post.updateMany(
-                        {
-                            comments: {$elemMatch: { commentedBy: req.session.userName }}
-                        }, 
-
-                        {   $set: 
-                            {
-                                commentedBy: req.body.username
-                            }
-                        }
-                        , null, function (err, docs) {
-                        if (err){
-                            console.log(err);
-                        }
-                        else{
-                            console.log("Updated likers successfully.");
-                            res.redirect('/home'); 
-                        }
-                    });
-
                         req.session.dp = imgPath;
-                        req.session.userName = username;
                         res.redirect("/profile/" + username);
                     }
                 });
