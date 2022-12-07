@@ -57,7 +57,6 @@ const profilecontroller = {
 
             const fname = req.body.fname;
             const lname = req.body.lname;
-            const username = req.body.username;
             const bio = req.body.bio;
             const email = req.body.email;
             
@@ -74,7 +73,7 @@ const profilecontroller = {
                         console.log(err);
                     }
                     else{
-                        res.redirect("/profile/" + username);
+                        res.redirect("/profile/" + req.session.userName);
                     }
                 });
             } else {
@@ -110,7 +109,7 @@ const profilecontroller = {
                     }
                     else{
                         req.session.dp = imgPath;
-                        res.redirect("/profile/" + username);
+                        res.redirect("/profile/" + req.session.userName);
                     }
                 });
             }
