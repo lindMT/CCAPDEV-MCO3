@@ -115,6 +115,31 @@ const profilecontroller = {
                             }
                         });
 
+                        // update username in comments from posts
+                        Post.updateMany({}, 
+                            {   $pull: 
+                                {
+                                    comments: {
+                                        commentedBy: req.session.userName
+                                    }
+                                },
+                                $push: 
+                                {
+                                    comments: {
+                                        commentedBy: req.session.username
+                                    }
+                                }
+                            }
+                            , null, function (err, docs) {
+                            if (err){
+                                console.log(err);
+                            }
+                            else{
+                                console.log("Updated likers successfully.");
+                                res.redirect('/home'); 
+                            }
+                        });
+
                         req.session.userName = username;
                         res.redirect("/profile/" + username);
                     }
@@ -193,6 +218,31 @@ const profilecontroller = {
                             }
                         });
                         
+                        // update username in comments from posts
+                        Post.updateMany({}, 
+                            {   $pull: 
+                                {
+                                    comments: {
+                                        commentedBy: req.session.userName
+                                    }
+                                },
+                                $push: 
+                                {
+                                    comments: {
+                                        commentedBy: req.session.username
+                                    }
+                                }
+                            }
+                            , null, function (err, docs) {
+                            if (err){
+                                console.log(err);
+                            }
+                            else{
+                                console.log("Updated likers successfully.");
+                                res.redirect('/home'); 
+                            }
+                        });
+
                         req.session.dp = imgPath;
                         req.session.userName = username;
                         res.redirect("/profile/" + username);
