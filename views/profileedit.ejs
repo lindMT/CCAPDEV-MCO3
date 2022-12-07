@@ -1,5 +1,6 @@
 <%- include("partials/header") -%>
-    <div class="profile-container">
+<br>
+<div class="profile-edit-container">
         <div class="register-title">  
             Edit Profile<hr>
         </div>
@@ -8,8 +9,8 @@
             <div class="userdetails">
                 
                 <div class="inputbox">
-                        <img src="<%= session.dp %>" class="greenborder" id="preview"><br> 
-                    <span class="inputdetails"> Profile Picture </span><br>
+                    <center><img src="<%= session.dp %>" class="greenborder" id="preview" height="150px" width="150px"><br> </center><br>
+                            <span class="inputdetails"> Change Profile Picture </span><br>
                     <input 
                         type="file" 
                         id="myFile" 
@@ -37,10 +38,11 @@
                     <input name="email" type="text" value="<%= user.email%>">
                 </div>
                 <div class="savebutton">
-                    <input type="submit" value="Save">
+                    <input type="submit" value="Save Profile Changes">
                 </div>
-                or <a href="/resetpassword">reset password</a>
+                or <a href="/resetpassword">Reset Password</a>
             </div>
         </form>
+
     </div>
 <%- include("partials/footer") -%>
