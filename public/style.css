@@ -9,7 +9,7 @@
 
 .container-fluid{
     font-family: 'Inter', serif;
-    color: var(--ivory);
+    background-color: var(--ivory);
     position: fixed;
     display: sticky;
     max-height: 75px;
@@ -17,7 +17,6 @@
     top: 0px;
     left: 0px;
     z-index: 1;
-    margin-bottom: 10px;
 }
 
 .navbarlogo{
@@ -53,7 +52,7 @@ input {
     color: var(--eerie-black);
 }
 
-/* The sidebar menu ---------------------------------------------------------------------------------*/
+/* Sidebar menu ---------------------------------------------------------------------------------*/
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 160px; /* Set the width of the sidebar */
@@ -72,9 +71,11 @@ input {
     border-style: solid;
     border-radius: 50%;
     border-color: var(--ivory);
+    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
-  /* The navigation menu links */
+/* The navigation menu links */
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
@@ -84,7 +85,7 @@ input {
     float: bottom;
 }
   
-  /* When you mouse over the navigation links, change their color */
+/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
     color: var(--eerie-black);
 }
@@ -99,10 +100,9 @@ input {
 .main {
     margin-left: 160px; /* Same as the width of the sidebar */
     margin-top: 75px;
-    padding: 0px 10px;
     background-color: var(--ivory);
-    height: fit-content;
-    min-height: 100%;
+    padding-bottom: 10px;
+
 }
 
 .sidenav>h1 {
@@ -159,6 +159,7 @@ input {
     text-align: center;
     background-color: var(--green-pantone);
     color: var(--ivory);
+    border-radius: 2px;
 }
 
 .dropdown {
@@ -183,7 +184,6 @@ input {
     border-color: var(--dartmouth-green);
     border-radius: 0 0 5px 5px;
     float: right;
-
 }
 
 .dropdown-content a {
@@ -318,7 +318,6 @@ input {
     height: 500px;
 }
 
-
 .post-price {
     font-family: 'Inter', serif;
     font-size: large;
@@ -343,7 +342,6 @@ input {
     font-size: 25px;
     color: grey;
     border: none;
-
 }
 
 .post-likecount {
@@ -403,11 +401,13 @@ input {
 	border-radius: 8px;
     margin-left: 15px;
     vertical-align: middle;
+    margin-right: 15px;
 }
 
 .post-makecomment {
 	transition: all 1s;
     padding-bottom: 10px;
+
 }
 
 .post-commentclicked {
@@ -440,12 +440,10 @@ button.primaryContained:hover {
 	background:hsla(152, 100%, 22%, 1);
 }
 
-
 /* Profile Page Content ---------------------------------------------------------------------------------*/
-
 .profile-container {
     padding-top: 10px;
-    margin-top: 10px;
+    margin: auto;
     width: 900px;
     background-color: hsla(52, 85%, 95%, 1);
 }
@@ -486,6 +484,17 @@ button.primaryContained:hover {
 	border: 2px solid;
 	border-radius: 50%;
 	border-color: var(--dartmouth-green);
+}
+
+.profile-edit-container {
+    padding-top: 10px;
+    width: 500px;
+    height: 750;
+    background-color: var(--nyanza);
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: var(--green-pantone);
 }
 
 /* Edit profile button */
@@ -594,7 +603,6 @@ button.primaryContained:hover {
     width: 300px;
 }
 
-
 .inputdetails {
     font-family: 'Inter', serif;
     width: 70%;
@@ -621,7 +629,6 @@ button.primaryContained:hover {
     padding: 25px 10px;
     background-color: #fdfae7ff;
     border-radius: 5px;
-
 }
   
 .button {
@@ -632,7 +639,6 @@ button.primaryContained:hover {
     border: none;
 }
 
-
 .savebutton {
     width: fit-content;
     height: 30px;
@@ -641,16 +647,16 @@ button.primaryContained:hover {
     border: none;
 }
 
-
 /* Sell Page Content */
-
 .selling-container {
-    width: 500px;
-    height: 750px;
+    width: 600px;
+    height: auto;
     background-color: var(--nyanza);
-    display: inline-table;
-    margin-top: 100px;
-    margin-left: 200px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: auto;
     border-radius: 10px;  
 }
 
@@ -677,7 +683,6 @@ button.primaryContained:hover {
 }
 
 /* About Us Page Content ---------------------------------------------------------------------------------*/
-
 .about-container {
     width: 750;
     height: 750px;
@@ -686,7 +691,7 @@ button.primaryContained:hover {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-
+    margin-bottom: 10px;
 }
 
 .about {
@@ -703,6 +708,7 @@ button.primaryContained:hover {
     background: var(--green-pantone);
     padding-top: 5px;
     padding-bottom: 5px;
+    border-radius: 10px 10px 0 0;
 
 }
 .about-description {
@@ -710,7 +716,6 @@ button.primaryContained:hover {
     font-size: small;
     padding: 20px 20px 20px 20px;
     text-align: justify;
-    
 }
 
-/* Bidding Rules Page Content ---------------------------------------------------------------------------------*/
+
