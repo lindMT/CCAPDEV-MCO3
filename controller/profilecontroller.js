@@ -79,7 +79,7 @@ const profilecontroller = {
                         // update username in posts by user
                         Post.updateMany({postedBy:{$eq: req.session.userName}}, 
                             {
-                                postedBy: req.session.userName 
+                                postedBy: req.body.username
                             }
                             , function (err2, docs2) {
                             if (err2){
@@ -101,7 +101,7 @@ const profilecontroller = {
                                 $push: 
                                 {
                                     likers: {
-                                        likerUserName: req.session.username
+                                        likerUserName: req.body.username
                                     }
                                 }
                             }
@@ -126,7 +126,7 @@ const profilecontroller = {
                                 $push: 
                                 {
                                     comments: {
-                                        commentedBy: req.session.username
+                                        commentedBy: req.body.username
                                     }
                                 }
                             }
@@ -182,7 +182,7 @@ const profilecontroller = {
                         Post.updateMany({ posterImg: {$eq: req.session.dp}}, 
                             {
                                 posterImg: imgPath,
-                                postedBy: req.session.userName
+                                postedBy: req.body.username
                             }
                             , function (err2, docs2) {
                             if (err2){
@@ -204,7 +204,7 @@ const profilecontroller = {
                                 $push: 
                                 {
                                     likers: {
-                                        likerUserName: req.session.username
+                                        likerUserName: req.body.username
                                     }
                                 }
                             }
@@ -229,7 +229,7 @@ const profilecontroller = {
                                 $push: 
                                 {
                                     comments: {
-                                        commentedBy: req.session.username
+                                        commentedBy: req.body.username
                                     }
                                 }
                             }
