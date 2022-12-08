@@ -5,7 +5,7 @@ const homecontroller = {
 
     getHome: function (req, res){
         if (req.session.isAuth) {
-            Post.find({}, function(err, docs) {
+            Post.find({}, null, {sort: { endDate: 1}}, function(err, docs) {
                 if (err){
                     console.log(err);
                 } else{
