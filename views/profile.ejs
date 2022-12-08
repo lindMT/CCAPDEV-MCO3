@@ -24,7 +24,6 @@
                 <div class="profile-hr"> </div>
             </div>
         </div>
-    </div>
 
     <% posts.forEach(function(indivpost){ %>
         <div class="posts-container">
@@ -102,9 +101,9 @@
                             <div class="post-makecomment">
                                 <p v-for="items in item" v-text="items"></p>
                                     <form action="/comment/<%= indivpost.id%>" method="POST">
-                                        <input type="text" placeholder="Add Comment" name="commentDetails" style="min-height: 50px" required>
+                                        <input type="text" placeholder="Write a comment..." name="commentDetails" style="min-height: 50px" required>
                                         
-                                        <button v-on:click="addItem()" class='primaryContained float-right' type="submit">
+                                        <button v-on:click="addItem()" class='primaryContained float-right' type="submit" style="margin-top: 5px">
                                             ADD COMMENT
                                         </button>
                                     </form>
@@ -112,6 +111,7 @@
                         </div>
                     </section>
         </div>
+    </div>
     <% }) %>
     
 <%- include("partials/footer") -%>
