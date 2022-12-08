@@ -7,6 +7,10 @@
     font-family: 'Inter', serif;
 }
 
+body {
+    background-color: black;
+    }
+
 .container-fluid{
     font-family: 'Inter', serif;
     background-color: var(--ivory);
@@ -101,7 +105,7 @@ input {
     margin-left: 160px; /* Same as the width of the sidebar */
     margin-top: 75px;
     background-color: var(--ivory);
-    padding-bottom: 10px;
+    padding-bottom: 150px;
 
 }
 
@@ -443,7 +447,6 @@ button.primaryContained:hover {
 /* Profile Page Content ---------------------------------------------------------------------------------*/
 .profile-container {
     padding-top: 10px;
-    margin: auto;
     width: 900px;
     background-color: hsla(52, 85%, 95%, 1);
 }
@@ -452,6 +455,7 @@ button.primaryContained:hover {
     background: var(--ivory);
     justify-content: center;
     font-family: 'Inter', serif;
+    padding-left: 50px;
 }
 
 .profile-hr {
