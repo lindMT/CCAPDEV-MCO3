@@ -212,7 +212,7 @@ input {
     z-index: 2;
 }
 
-/* Post */
+/* Post    */
 .posts-container {
     width: 500px;
     height: 750px;
@@ -221,6 +221,20 @@ input {
     margin-top: 20px;
     margin-left: 75px;
     border-radius: 10px;  
+}
+
+.post-hashtags{
+    padding: 5px 5px 5px 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+    font-size: small;
+    font-style: italic;
+    display: inline-block;
+    cursor: pointer;
+    color:hsla(135, 59%, 41%, 1);
+    border-radius: 5px;
+    border: 1px solid hsla(135, 59%, 41%, 1);
 }
 
 .post-profile> .dropdown> .dropbtn> i {
