@@ -19,7 +19,7 @@ Instructions to setup:
         
 Instructions to run locally:
 - open the root directory (folder) in the command prompt
-- type "node server.js" and hit enter
+- type "node localhostserver.js" and hit enter
 - open a web browser and type "http://localhost:3000/" and hit enter
 
 How to use sample data:
