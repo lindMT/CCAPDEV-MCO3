@@ -70,7 +70,15 @@ const profilecontroller = {
                     }
                     , null, function (err, docs) {
                     if (err){
-                        console.log(err);
+                        User.findOne({ userName: req.session.userName }, function (err2, docs2) {
+                            if (err2){
+                                console.log(err2);
+                            }
+                            else{
+                                console.log("Profile edit selected.")
+                                res.render('profileedit', {user: docs2, imagePrompt: "The email you've inputted has already been taken."})
+                            }
+                        });
                     }
                     else{
                         res.redirect("/profile/" + req.session.userName);
@@ -105,7 +113,15 @@ const profilecontroller = {
                     }
                     , null, function (err, docs) {
                     if (err){
-                        console.log(err);
+                        User.findOne({ userName: req.session.userName }, function (err2, docs2) {
+                            if (err2){
+                                console.log(err2);
+                            }
+                            else{
+                                console.log("Profile edit selected.")
+                                res.render('profileedit', {user: docs2, imagePrompt: "The email you've inputted has already been taken."})
+                            }
+                        });
                     }
                     else{
                         req.session.dp = imgPath;

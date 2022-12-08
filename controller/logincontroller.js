@@ -70,7 +70,7 @@ const logincontroller = {
             });
             user.save(function(err) {
                 if (err){
-                    console.log(err);
+                    res.render('signup', {registerPrompt: "The ID Number/Username/Email you've inputted has already been taken."});
                 } else{
                     res.render('login', {loginPrompt: "You have registered successfully!"});
                 }
