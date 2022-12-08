@@ -21,6 +21,7 @@ app.get("/home", homecontroller.getHome);
 app.get("/aboutus", homecontroller.getAboutUs);
 app.get("/biddingrules", homecontroller.getBiddingRules);
 app.get("/popularsearchlanding", homecontroller.getSearchPopular);
+app.get("/catsearchlanding/:clickedCategory", homecontroller.getCategorySearchResults);
 app.post("/textsearchlanding", homecontroller.getTextSearchResults);
 
 //Profile

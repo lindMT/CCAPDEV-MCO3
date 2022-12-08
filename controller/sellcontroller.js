@@ -45,6 +45,7 @@ const sellcontroller = {
                         postImg: imgPath,
                         itemName: req.body.itemName,
                         postDetails: req.body.postDetails,
+                        category: req.body.category,
                         startingBid: req.body.startingBid,
                         buyOutPrice: req.body.buyOutPrice,
                         minimumIncrement: req.body.minimumIncrement,

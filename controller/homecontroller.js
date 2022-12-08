@@ -71,6 +71,24 @@ const homecontroller = {
             res.render('login', {loginPrompt: "Please Login First"});
         }
     },
+
+    getCategorySearchResults: function (req, res){
+        if(req.session.isAuth) {
+            var searchQuery = req.params.clickedCategory;
+            
+            // checks for posts that contain searchQuery
+            Post.find({category : {$regex : new RegExp(searchQuery, 'i')}}, function (err, docs){
+                if (err){
+                    console.log(err);
+                } else{
+                    res.render('searchlanding', {posts: docs , searchCategory: "Category: "+ searchQuery});
+                }
+            });
+        }
+        else {
+            res.render('login', {loginPrompt: "Please Login First"});
+        }
+    },
 }
 
 module.exports = homecontroller;
