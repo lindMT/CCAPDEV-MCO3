@@ -8,7 +8,7 @@ Authors:
 Deployed Website Link:
 https://dlsubtp-mco3.onrender.com/
 
-(Disclaimer: This website is not in any way affiliated with DLSU or the DLSU Bids to Pick Facebook page. This website was created in partial fulfillment for the course CCAPDEV in DLSU - Manila. Additionally, due to high traffic volume in the free hosting service used, high latency may occur at times.)
+(Disclaimer: This website is not in any way affiliated with DLSU or the DLSU Bids to Pick Facebook group. This website was created in partial fulfillment for the course CCAPDEV in DLSU - Manila. Additionally, due to high traffic volume in the free hosting service used, high latency may occur at times.)
 
 Setup Instructions:
 - open the root directory (folder) in the command prompt
